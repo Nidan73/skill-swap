@@ -2,7 +2,7 @@ import React from "react";
 import { CiStar } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
 import feedback from "../assets/feedback.jpeg";
-import FloatingCards from "./FloatingCards";
+import FloatingCards from "../Components/FloatingCards";
 import Marquee from "react-fast-marquee";
 const Hero = () => {
   const marquee = [
