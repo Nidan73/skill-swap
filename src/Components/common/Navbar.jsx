@@ -1,5 +1,6 @@
 import React from "react";
 import headerLogo from "../../assets/header-logo-black.svg";
+import profileIcon from "../../assets/user.png";
 const Navbar = () => {
   const links = (
     <>
@@ -12,7 +13,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100 shadow-sm w-11/12 mx-auto">
+    <div className="navbar bg-base-100 shadow-sm md:w-11/12 mx-auto">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -47,7 +48,8 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end flex items-center gap-2.5">
+        <img src={profileIcon} alt="" />
         <a className="btn btn-lg btn-primary text-base-100 rounded-b-xl">
           Login
         </a>

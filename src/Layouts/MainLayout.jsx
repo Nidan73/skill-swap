@@ -1,5 +1,5 @@
 import React from "react";
-import Home from "../Components/Home";
+import Home from "./Home";
 import { Outlet } from "react-router";
 
 const MainLayout = () => {
