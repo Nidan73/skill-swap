@@ -1,0 +1,98 @@
+[
+  {
+    "skillId": 1,
+    "skillName": "Yoga for Beginners",
+    "providerName": "Emma Thompson",
+    "providerEmail": "emma@skillswap.com",
+    "price": 25,
+    "rating": 4.9,
+    "slotsAvailable": 4,
+    "description": "Gentle yoga sessions to build flexibility, strength, and mindfulness for complete beginners.",
+    "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b",
+    "category": "Fitness"
+  },
+  {
+    "skillId": 2,
+    "skillName": "Introduction to Python",
+    "providerName": "Raj Patel",
+    "providerEmail": "raj@skillswap.com",
+    "price": 30,
+    "rating": 4.7,
+    "slotsAvailable": 6,
+    "description": "Hands-on introduction to Python programming with real-world projects for absolute beginners.",
+    "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97",
+    "category": "Programming"
+  },
+  {
+    "skillId": 3,
+    "skillName": "Homemade Pizza Making",
+    "providerName": "Maria Lopez",
+    "providerEmail": "maria@skillswap.com",
+    "price": 15,
+    "rating": 4.8,
+    "slotsAvailable": 2,
+    "description": "Learn to make authentic Italian-style pizza from scratch in a fun, interactive class.",
+    "image": "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3",
+    "category": "Cooking"
+  },
+  {
+    "skillId": 4,
+    "skillName": "Portrait Photography",
+    "providerName": "Liam Chen",
+    "providerEmail": "liam@skillswap.com",
+    "price": 40,
+    "rating": 4.6,
+    "slotsAvailable": 5,
+    "description": "Master lighting, composition, and posing to capture stunning professional portraits.",
+    "image": "https://i.ibb.co.com/rRZmQVLY/apa-essentials-course-2048-a-1152-px-7-Yanq-Ee0j9q-TO2-WWb.jpg",
+    "category": "Photography"
+  },
+  {
+    "skillId": 5,
+    "skillName": "French Conversation Practice",
+    "providerName": "Sophie Moreau",
+    "providerEmail": "sophie@skillswap.com",
+    "price": 20,
+    "rating": 4.5,
+    "slotsAvailable": 8,
+    "description": "Build confidence in speaking French through engaging conversations and role-playing.",
+    "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d",
+    "category": "Language"
+  },
+  {
+    "skillId": 6,
+    "skillName": "Digital Illustration Basics",
+    "providerName": "Alex Rivera",
+    "providerEmail": "alex@skillswap.com",
+    "price": 18,
+    "rating": 4.9,
+    "slotsAvailable": 3,
+    "description": "Learn the fundamentals of digital drawing using tablets and popular software like Procreate.",
+    "image": "https://i.ibb.co.com/gLK769pw/00bf086-6e2e-d83b-735b-a24bf6b786f8-Untitled-design-4.jpg",
+    "category": "Art"
+  },
+  {
+    "skillId": 7,
+    "skillName": "Meditation & Mindfulness",
+    "providerName": "Priya Sharma",
+    "providerEmail": "priya@skillswap.com",
+    "price": 12,
+    "rating": 4.8,
+    "slotsAvailable": 7,
+    "description": "Discover simple daily meditation techniques to reduce stress and improve mental clarity.",
+    "image": "https://images.unsplash.com/photo-1506126613408-eca07ce68773",
+    "category": "Wellness"
+  },
+  {
+    "skillId": 8,
+    "skillName": "Beginner Guitar Lessons",
+    "providerName": "Jordan Lee",
+    "providerEmail": "jordan@skillswap.com",
+    "price": 22,
+    "rating": 4.7,
+    "slotsAvailable": 4,
+    "description": "Quickly learn essential guitar chords, strumming patterns, and play your first songs.",
+    "image": "https://i.ibb.co.com/vxFkckzn/beg-guitar-meta.jpg",
+    "category": "Music"
+  }
+]
