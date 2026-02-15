@@ -6,14 +6,14 @@ import HomeMain from "../pages/HomeMain";
 const Home = () => {
   return (
     <div className="flex flex-col min-h-screen">
-      <main className="flex-1 md:w-11/12 mx-auto">
+      <div className="flex-1 md:w-11/12 mx-auto">
         <section>
           <Hero></Hero>
         </section>
         <section className="mt-5 md:mt-9">
           <HomeMain></HomeMain>
         </section>
-      </main>
+      </div>
     </div>
   );
 };
