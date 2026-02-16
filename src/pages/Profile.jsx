@@ -1,9 +1,24 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../app/Context/AuthContext";
+import { updateProfile } from "firebase/auth";
+import toast from "react-hot-toast";
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
 
+  const handleUpdate = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const name = form.name.value;
+    const photoUrl = form.url.value;
+    updateProfile(user, {
+      displayName: name,
+      photoURL: photoUrl,
+    });
+    window.location.reload();
+    toast.success("succusfully Updated");
+  };
   return (
     <div className="min-h-screen bg-[#eef7ea] py-12 px-6">
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
@@ -35,13 +50,14 @@ const Profile = () => {
               Update Profile
             </h3>
 
-            <form className="space-y-4">
+            <form onSubmit={handleUpdate} className="space-y-4">
               <div>
                 <label className="label">
                   <span className="label-text">Name</span>
                 </label>
                 <input
                   type="text"
+                  name="name"
                   defaultValue={user.displayName}
                   className="input input-bordered w-full"
                 />
@@ -53,6 +69,7 @@ const Profile = () => {
                 </label>
                 <input
                   type="url"
+                  name="url"
                   defaultValue={user.photoURL}
                   className="input input-bordered w-full"
                 />
