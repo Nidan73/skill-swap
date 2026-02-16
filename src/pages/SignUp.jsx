@@ -1,13 +1,16 @@
 // import Link from "daisyui/components/link";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, Navigate, useLocation } from "react-router";
 import { AuthContext } from "../app/Context/AuthContext";
 import { updateProfile } from "firebase/auth";
 import toast, { Toaster } from "react-hot-toast";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const SignUp = () => {
   const { createUser, googleSignIn } = useContext(AuthContext);
   const location = useLocation();
+  const [error, setError] = useState("");
+  const [showPass, setShowPass] = useState(false);
   const handleSignUp = (e) => {
     e.preventDefault();
 
@@ -16,6 +19,16 @@ const SignUp = () => {
     const email = form.email.value;
     const password = form.password.value;
     const photoUrl = form.url.value;
+
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    if (!passwordRegex.test(password)) {
+      setError(
+        "Password must have at least 1 uppercase, 1 lowercase and be at least 6 characters long.",
+      );
+      return;
+    } else {
+      setError("");
+    }
 
     createUser(email, password).then((result) => {
       const user = result.user;
@@ -99,17 +112,25 @@ const SignUp = () => {
               </div>
 
               {/* Password */}
-              <div>
+              <div className="relative">
                 <label className="label">
                   <span className="label-text font-medium">Password</span>
                 </label>
+
                 <input
                   name="password"
-                  type="password"
+                  type={showPass ? "text" : "password"}
                   placeholder="Create a password"
-                  className="input input-bordered w-full focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="input input-bordered w-full pr-12"
                   required
                 />
+
+                <span
+                  className="absolute right-4 top-8 cursor-pointer text-gray-500"
+                  onClick={() => setShowPass(!showPass)}
+                >
+                  {showPass ? <FaEyeSlash /> : <FaEye />}
+                </span>
               </div>
 
               <button
@@ -162,6 +183,8 @@ const SignUp = () => {
                 Login here
               </Link>
             </p>
+
+            <p className="text-red-500 font-bold text-lg">{error}</p>
           </div>
         </div>
       </div>

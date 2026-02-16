@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../app/Context/AuthContext";
 import toast from "react-hot-toast";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 // import toast from "daisyui/components/toast";
 
 const Login = () => {
@@ -9,6 +10,7 @@ const Login = () => {
   const location = useLocation();
   console.log(location);
   const navigate = useNavigate();
+  const [showPass, setShowPass] = useState(false);
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -61,17 +63,27 @@ const Login = () => {
                   className="input input-bordered w-full focus:outline-none focus:ring-2 focus:ring-primary"
                 />
               </div>
-              <div>
+              <div className="relative">
                 <label className="label">
                   <span className="label-text font-medium">Password</span>
                 </label>
+
                 <input
                   name="password"
-                  type="password"
-                  placeholder="Enter your password"
-                  className="input input-bordered w-full focus:outline-none focus:ring-2 focus:ring-primary"
+                  type={showPass ? "text" : "password"}
+                  placeholder="Create a password"
+                  className="input input-bordered w-full pr-12"
+                  required
                 />
+
+                <span
+                  className="absolute right-4 top-8 cursor-pointer text-gray-500"
+                  onClick={() => setShowPass(!showPass)}
+                >
+                  {showPass ? <FaEyeSlash /> : <FaEye />}
+                </span>
               </div>
+
               <div className="text-right">
                 <a className="text-sm text-primary hover:underline cursor-pointer">
                   Forgot password?
