@@ -22,7 +22,7 @@ const Login = () => {
         toast.success("login Succesfully");
         navigate(location?.state || "/");
       })
-      .catch((error) => {
+      .catch(() => {
         // console.log(error);
       });
   };
@@ -85,9 +85,12 @@ const Login = () => {
               </div>
 
               <div className="text-right">
-                <a className="text-sm text-primary hover:underline cursor-pointer">
+                <Link
+                  to="/forgot"
+                  className="text-sm text-primary hover:underline cursor-pointer"
+                >
                   Forgot password?
-                </a>
+                </Link>
               </div>
               <button className="btn btn-primary w-full mt-2 text-base font-semibold">
                 Login

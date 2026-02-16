@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { AuthContext } from "../app/Context/AuthContext";
 import { updateProfile } from "firebase/auth";
 import toast from "react-hot-toast";

@@ -12,7 +12,7 @@ const Navbar = () => {
   );
 
   const { user, logOut } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user.displayName);
   const handleSignOut = () => {
     logOut();
   };
@@ -54,11 +54,20 @@ const Navbar = () => {
       </div>
       <div className="navbar-end flex items-center gap-2.5">
         {user ? (
-          <img className="w-15 h-15 rounded-4xl" src={user.photoURL} alt="" />
+          <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
+            <img
+              className="w-12 h-12 rounded-full cursor-pointer"
+              src={user.photoURL}
+              alt="profile"
+            />
+          </div>
         ) : (
-          <img src={profileIcon} alt="" />
+          <img
+            className="w-12 h-12 rounded-full"
+            src={profileIcon}
+            alt="profile"
+          />
         )}
-
         {user ? (
           <Link
             onClick={handleSignOut}

@@ -41,7 +41,7 @@ const SignUp = () => {
           toast.success("Created successfully");
           form.reset();
         })
-        .catch((error) => {
+        .catch(() => {
           // console.log(error.message);
         });
     });
