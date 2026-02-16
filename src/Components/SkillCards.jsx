@@ -8,7 +8,6 @@ const SkillCards = ({ skill }) => {
 
   return (
     <div className="flex bg-base-100 border border-base-300 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition">
-      {/* Image */}
       <div className="w-40 h-36 flex-shrink-0">
         <img
           src={image}
@@ -17,21 +16,17 @@ const SkillCards = ({ skill }) => {
         />
       </div>
 
-      {/* Content */}
       <div className="flex-1 p-5 flex flex-col justify-between">
-        {/* Top row */}
         <div className="flex justify-between items-start gap-4">
           <div>
             <h2 className="font-bold text-primary text-lg">{skillName}</h2>
 
-            {/* Category */}
             <div className="mt-1">
               <span className="badge badge-accent text-black badge-sm">
                 {category}
               </span>
             </div>
 
-            {/* Rating */}
             <div className="mt-2 flex items-center gap-2">
               <div className="flex gap-0.5 text-accent">
                 {[...Array(5)].map((_, i) => (
@@ -47,19 +42,16 @@ const SkillCards = ({ skill }) => {
               <span className="text-sm opacity-70">{rating}</span>
             </div>
 
-            {/* Slots */}
             <p className="text-sm mt-1 opacity-70">
               🪑 {slotsAvailable} slots available
             </p>
           </div>
 
-          {/* Price */}
           <div className="text-right">
             <p className="text-lg font-bold">${price}</p>
           </div>
         </div>
 
-        {/* Button */}
         <div className="mt-4">
           <Link to={`/skills/${skillId}`} className="btn btn-primary btn-sm">
             View Details

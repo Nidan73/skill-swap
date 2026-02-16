@@ -13,6 +13,18 @@ export const router = createBrowserRouter([
         path: "/",
         Component: Home,
       },
+      {
+        path: "/profile",
+        element: <div>This is profile</div>,
+      },
+      {
+        path: "/login",
+        element: <div>This is Login</div>,
+      },
+      {
+        path: "/register",
+        element: <div>This is Register</div>,
+      },
     ],
   },
 ]);

@@ -1,15 +1,12 @@
 import React from "react";
 import headerLogo from "../../assets/header-logo-black.svg";
 import profileIcon from "../../assets/user.png";
+import { Link, NavLink } from "react-router";
 const Navbar = () => {
   const links = (
     <>
-      <li>
-        <a>Item 1</a>
-      </li>
-      <li>
-        <a>Item 3</a>
-      </li>
+      <NavLink to="/">Home</NavLink>
+      <NavLink to="/profile">Profile</NavLink>
     </>
   );
   return (
@@ -40,19 +37,22 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">
+        <Link to="/" className="btn btn-ghost text-xl">
           {" "}
           <img src={headerLogo} />
-        </a>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end flex items-center gap-2.5">
         <img src={profileIcon} alt="" />
-        <a className="btn btn-lg btn-primary text-base-100 rounded-b-xl">
+        <Link
+          to="/login"
+          className="btn btn-lg btn-primary text-base-100 rounded-b-xl"
+        >
           Login
-        </a>
+        </Link>
       </div>
     </div>
   );

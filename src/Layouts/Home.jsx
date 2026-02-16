@@ -4,6 +4,7 @@ import Footer from "../Components/common/footer";
 import Hero from "../pages/Hero";
 import HomeMain from "../pages/HomeMain";
 import { useLoaderData } from "react-router";
+import HomeExtra from "../pages/HomeExtra";
 const Home = () => {
   const data = useLoaderData();
   // console.log(data);
@@ -15,6 +16,9 @@ const Home = () => {
         </section>
         <section className="mt-5 md:mt-9">
           <HomeMain key={data.key} data={data}></HomeMain>
+        </section>
+        <section className="extra">
+          <HomeExtra></HomeExtra>
         </section>
       </div>
     </div>

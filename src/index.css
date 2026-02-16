@@ -20,3 +20,12 @@
   --color-base-200: #989998;
   --color-base-300: #e3cd8a;
 }
+
+.menu a.active {
+  text-decoration: underline;
+}
+.menu a {
+  margin-right: 10px;
+  font-size: large;
+  font-weight: 600;
+}

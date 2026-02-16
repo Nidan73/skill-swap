@@ -77,7 +77,7 @@ const Hero = () => {
         </div>
       </div>
       <div className="mt-3">
-        <h2 className="font-bold p-3 md:p-6 text-lg md:text-2xl w-full md:w-6/12 mx-auto text-center">
+        <h2 className="font-bold p-3 md:p-6 text-lg md:text-2xl w-full md:w-6/12 mx-auto text-center animate__animated animate__pulse">
           Taken by +05M from the world's leading companies
         </h2>
         <div className="w-full md:w-6/12 mx-auto shadow-sm p-6 rounded-b-4xl">
