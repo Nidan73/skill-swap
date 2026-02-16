@@ -10,7 +10,7 @@ This project demonstrates modern React development practices including Context A
 
 ## 🚀 Live Site
 
-🔗 https://your-live-site-link.com
+🔗 https://skill-swap-963e6.web.app/
 
 (Replace with your deployed link)
 

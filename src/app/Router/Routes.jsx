@@ -7,6 +7,7 @@ import SignUp from "../../pages/SignUp";
 import Profile from "../../pages/Profile";
 import PrivateRoute from "./PrivateRoute";
 import ForgetPass from "../../pages/forgetPass";
+import Loader from "../../Components/common/Loader";
 
 export const router = createBrowserRouter([
   {
@@ -17,11 +18,13 @@ export const router = createBrowserRouter([
         index: true,
         loader: () => fetch("/skill.json"),
         path: "/",
+        hydrateFallbackElement: <Loader></Loader>,
         Component: Home,
       },
       {
         path: "//skills/:id",
         loader: () => fetch("/skill.json"),
+        hydrateFallbackElement: <Loader></Loader>,
         element: (
           <PrivateRoute>
             <SkillPage></SkillPage>,
