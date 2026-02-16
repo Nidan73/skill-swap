@@ -1,4 +1,3 @@
-import { details } from "framer-motion/client";
 import React, { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router";
 import SkillDetails from "../Components/SkillDetails";
