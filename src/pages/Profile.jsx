@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { AuthContext } from "../app/Context/AuthContext";
 import { updateProfile } from "firebase/auth";
 import toast from "react-hot-toast";
@@ -16,9 +16,9 @@ const Profile = () => {
       displayName: name,
       photoURL: photoUrl,
     });
-    window.location.reload();
     toast.success("succusfully Updated");
   };
+
   return (
     <div className="min-h-screen bg-[#eef7ea] py-12 px-6">
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
