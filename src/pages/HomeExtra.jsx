@@ -1,5 +1,6 @@
 import React from "react";
 import { FaStar, FaUserGraduate, FaSearch, FaHandshake } from "react-icons/fa";
+import { FaShieldAlt, FaClock, FaUsers, FaCertificate } from "react-icons/fa";
 
 const providers = [
   {
@@ -119,6 +120,76 @@ const HomeExtra = () => {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-base-100">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl font-bold text-primary">
+              Why Choose SkillSwap?
+            </h2>
+            <p className="mt-2 text-sm opacity-70">
+              We make skill learning simple, trusted, and community-driven.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="card bg-base-100 border border-base-300 rounded-2xl shadow-sm hover:shadow-xl transition">
+              <div className="card-body items-center text-center">
+                <div className="w-14 h-14 rounded-full bg-accent text-black flex items-center justify-center text-2xl shadow-md">
+                  <FaShieldAlt />
+                </div>
+                <h3 className="font-semibold text-lg mt-3">
+                  Trusted Providers
+                </h3>
+                <p className="text-sm opacity-70">
+                  Learn from verified and top-rated instructors with real
+                  reviews.
+                </p>
+              </div>
+            </div>
+
+            <div className="card bg-base-100 border border-base-300 rounded-2xl shadow-sm hover:shadow-xl transition">
+              <div className="card-body items-center text-center">
+                <div className="w-14 h-14 rounded-full bg-accent text-black flex items-center justify-center text-2xl shadow-md">
+                  <FaClock />
+                </div>
+                <h3 className="font-semibold text-lg mt-3">
+                  Flexible Scheduling
+                </h3>
+                <p className="text-sm opacity-70">
+                  Choose sessions that fit your routine—weekdays or weekends.
+                </p>
+              </div>
+            </div>
+
+            <div className="card bg-base-100 border border-base-300 rounded-2xl shadow-sm hover:shadow-xl transition">
+              <div className="card-body items-center text-center">
+                <div className="w-14 h-14 rounded-full bg-accent text-black flex items-center justify-center text-2xl shadow-md">
+                  <FaUsers />
+                </div>
+                <h3 className="font-semibold text-lg mt-3">
+                  Community Learning
+                </h3>
+                <p className="text-sm opacity-70">
+                  Connect with mentors and learners to grow together.
+                </p>
+              </div>
+            </div>
+
+            <div className="card bg-base-100 border border-base-300 rounded-2xl shadow-sm hover:shadow-xl transition">
+              <div className="card-body items-center text-center">
+                <div className="w-14 h-14 rounded-full bg-accent text-black flex items-center justify-center text-2xl shadow-md">
+                  <FaCertificate />
+                </div>
+                <h3 className="font-semibold text-lg mt-3">Skill Growth</h3>
+                <p className="text-sm opacity-70">
+                  Track progress and build confidence with structured sessions.
+                </p>
+              </div>
             </div>
           </div>
         </div>
