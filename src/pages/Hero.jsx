@@ -40,7 +40,7 @@ const Hero = () => {
           <div className="md:order-2">
             <FloatingCards></FloatingCards>
           </div>
-          <div className="md:order-1">
+          <div data-aos="fade-up" data-aos-delay="200" className="md:order-1 ">
             <h1 className="text-3xl lg:text-7xl font-bold text-base-100">
               Explore tailored{" "}
               <span className="text-accent">
@@ -86,6 +86,7 @@ const Hero = () => {
           </Marquee>
         </div>
       </div>
+      <div></div>
     </div>
   );
 };
