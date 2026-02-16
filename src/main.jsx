@@ -6,10 +6,13 @@ import { RouterProvider } from "react-router/dom";
 import { router } from "./app/Router/Routes.jsx";
 import "animate.css";
 import { Toaster } from "react-hot-toast";
+import AuthProvider from "./app/Context/AuthProvider.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router}></RouterProvider>
-    <Toaster position="top-right" />
+    <AuthProvider>
+      <RouterProvider router={router}></RouterProvider>
+      <Toaster position="top-right" />
+    </AuthProvider>
   </StrictMode>,
 );

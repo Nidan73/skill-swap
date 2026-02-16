@@ -4,6 +4,8 @@ import Home from "../../Layouts/Home";
 import SkillPage from "../../pages/SkillPage";
 import Login from "../../pages/Login";
 import SignUp from "../../pages/SignUp";
+import Profile from "../../pages/Profile";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -19,11 +21,19 @@ export const router = createBrowserRouter([
       {
         path: "//skills/:id",
         loader: () => fetch("/skill.json"),
-        element: <SkillPage></SkillPage>,
+        element: (
+          <PrivateRoute>
+            <SkillPage></SkillPage>,
+          </PrivateRoute>
+        ),
       },
       {
         path: "/profile",
-        element: <div>This is profile</div>,
+        element: (
+          <PrivateRoute>
+            <Profile></Profile>,
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",

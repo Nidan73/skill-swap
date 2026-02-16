@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import headerLogo from "../../assets/header-logo-black.svg";
 import profileIcon from "../../assets/user.png";
 import { Link, NavLink } from "react-router";
+import { AuthContext } from "../../app/Context/AuthContext";
 const Navbar = () => {
   const links = (
     <>
       <NavLink to="/">Home</NavLink>
-      <NavLink to="/profile">Profile</NavLink>
+      <NavLink to="/profile">My Profile</NavLink>
     </>
   );
+
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
+  const handleSignOut = () => {
+    logOut();
+  };
   return (
     <div className="navbar bg-base-100 shadow-sm md:w-11/12 mx-auto">
       <div className="navbar-start">
@@ -46,13 +53,28 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end flex items-center gap-2.5">
-        <img src={profileIcon} alt="" />
-        <Link
-          to="/login"
-          className="btn btn-lg btn-primary text-base-100 rounded-b-xl"
-        >
-          Login
-        </Link>
+        {user ? (
+          <img className="w-15 h-15 rounded-4xl" src={user.photoURL} alt="" />
+        ) : (
+          <img src={profileIcon} alt="" />
+        )}
+
+        {user ? (
+          <Link
+            onClick={handleSignOut}
+            to="/"
+            className="btn btn-lg btn-primary text-base-100 rounded-b-xl"
+          >
+            LogOut
+          </Link>
+        ) : (
+          <Link
+            to="/login"
+            className="btn btn-lg btn-primary text-base-100 rounded-b-xl"
+          >
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );

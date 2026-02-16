@@ -1,8 +1,40 @@
 // import Link from "daisyui/components/link";
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router";
+import { AuthContext } from "../app/Context/AuthContext";
+import { updateProfile } from "firebase/auth";
+import toast, { Toaster } from "react-hot-toast";
 
 const SignUp = () => {
+  const { createUser, user, setUser } = useContext(AuthContext);
+  const handleSignUp = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const photoUrl = form.url.value;
+
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+
+        updateProfile(user, {
+          displayName: name,
+          photoURL: photoUrl,
+        })
+          .then(() => {
+            toast.success("Created successfully");
+            form.reset();
+          })
+          .catch((error) => {
+            console.log(error.message);
+          });
+      })
+      .catch((error) => console.log(error.message));
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#eef7ea] px-6">
       <div className="w-full max-w-lg">
@@ -17,13 +49,14 @@ const SignUp = () => {
 
         <div className="card bg-base-100 shadow-xl border border-base-300 rounded-3xl">
           <div className="card-body p-8">
-            <form className="space-y-5">
+            <form onSubmit={handleSignUp} className="space-y-5">
               {/* Name */}
               <div>
                 <label className="label">
                   <span className="label-text font-medium">Full Name</span>
                 </label>
                 <input
+                  name="name"
                   type="text"
                   placeholder="Enter your full name"
                   className="input input-bordered w-full focus:outline-none focus:ring-2 focus:ring-primary"
@@ -37,6 +70,7 @@ const SignUp = () => {
                   <span className="label-text font-medium">Email</span>
                 </label>
                 <input
+                  name="email"
                   type="email"
                   placeholder="Enter your email"
                   className="input input-bordered w-full focus:outline-none focus:ring-2 focus:ring-primary"
@@ -50,6 +84,7 @@ const SignUp = () => {
                   <span className="label-text font-medium">Photo URL</span>
                 </label>
                 <input
+                  name="url"
                   type="url"
                   placeholder="Enter your photo URL"
                   className="input input-bordered w-full focus:outline-none focus:ring-2 focus:ring-primary"
@@ -62,6 +97,7 @@ const SignUp = () => {
                   <span className="label-text font-medium">Password</span>
                 </label>
                 <input
+                  name="password"
                   type="password"
                   placeholder="Create a password"
                   className="input input-bordered w-full focus:outline-none focus:ring-2 focus:ring-primary"

@@ -1,7 +1,29 @@
-import React from "react";
-import { Link } from "react-router";
+import React, { useContext } from "react";
+import { Link, useLocation, useNavigate } from "react-router";
+import { AuthContext } from "../app/Context/AuthContext";
+import toast from "react-hot-toast";
+// import toast from "daisyui/components/toast";
 
 const Login = () => {
+  const { userLogin } = useContext(AuthContext);
+  const location = useLocation();
+  console.log(location);
+  const navigate = useNavigate();
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    userLogin(email, password)
+      .then((result) => {
+        toast.success("login Succesfully");
+        console.log(result);
+        navigate(location?.state || "/");
+      })
+      .catch((error) => toast.success(error.message));
+    // console.log(email, password);
+  };
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#eef7ea] px-6">
       <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl w-full">
@@ -20,13 +42,14 @@ const Login = () => {
               Login to your account
             </h2>
 
-            <form className="mt-6 space-y-5">
+            <form onSubmit={handleLogin} className="mt-6 space-y-5">
               <div>
                 <label className="label">
                   <span className="label-text font-medium">Email</span>
                 </label>
                 <input
                   type="email"
+                  name="email"
                   placeholder="Enter your email"
                   className="input input-bordered w-full focus:outline-none focus:ring-2 focus:ring-primary"
                 />
@@ -36,6 +59,7 @@ const Login = () => {
                   <span className="label-text font-medium">Password</span>
                 </label>
                 <input
+                  name="password"
                   type="password"
                   placeholder="Enter your password"
                   className="input input-bordered w-full focus:outline-none focus:ring-2 focus:ring-primary"
