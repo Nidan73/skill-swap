@@ -11,6 +11,7 @@ const Login = () => {
   console.log(location);
   const navigate = useNavigate();
   const [showPass, setShowPass] = useState(false);
+  const [error, setError] = useState("");
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -22,10 +23,11 @@ const Login = () => {
         toast.success("login Succesfully");
         navigate(location?.state || "/");
       })
-      .catch(() => {
-        // console.log(error);
+      .catch((error) => {
+        setError(error.message);
       });
   };
+
   const handleGoogle = () => {
     googleSignIn().then(() => {
       toast.success("login Succesfully");
@@ -139,6 +141,7 @@ const Login = () => {
                     </Link>
                   </span>
                 </p>
+                <p className="text-lg font-semibold text-red-500">{error}</p>
               </div>
             </form>
           </div>
