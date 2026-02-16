@@ -6,6 +6,13 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    children: [{ index: true, path: "/", Component: Home }],
+    children: [
+      {
+        index: true,
+        loader: () => fetch("/skill.json"),
+        path: "/",
+        Component: Home,
+      },
+    ],
   },
 ]);
