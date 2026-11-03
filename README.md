@@ -1,121 +1,62 @@
-# 🌟 SkillSwap
+# Skill Swap
 
-## 📌 Project Overview
+Live: https://skill-swap-963e6.web.app/
 
-SkillSwap is a skill-sharing platform where users can explore various skills, view detailed information, and book sessions with providers. The application includes authentication, profile management, and protected routes using Firebase Authentication.
+A skill-sharing site where people browse skill offers, view details and request a session. Built with React, Vite and Firebase Authentication.
 
-This project demonstrates modern React development practices including Context API, route protection, dynamic UI rendering, and form validation.
+## Features
 
----
+- Sign up with name, photo URL, email and password, or sign in with Google.
+- Password rule: at least 6 characters with upper and lower case letters, plus a show/hide toggle.
+- Protected routes for skill details and profile. Logged-out users go to login and come back to the page they asked for.
+- Profile page to update display name and photo.
+- Forgot password page that sends a Firebase reset email.
+- Skill listings loaded from `public/skill.json` through React Router loaders.
+- Session booking form (front-end demo: it shows a confirmation toast and nothing is stored).
 
-## 🚀 Live Site
+## Stack
 
-🔗 https://skill-swap-963e6.web.app/
+React 19, Vite 7, React Router 7, Firebase Authentication 12, Context API, Tailwind CSS 4, DaisyUI 5, Framer Motion, AOS, react-hot-toast. Hosted on Firebase Hosting.
 
-(Replace with your deployed link)
+## Run locally
 
----
+```bash
+git clone https://github.com/Nidan73/skill-swap.git
+cd skill-swap
+npm install
+```
 
-## 🎯 Purpose of the Project
+Create `.env.local` with your Firebase web app config:
 
-The goal of SkillSwap is to:
+```
+VITE_FIREBASE_API_KEY=
+VITE_FIREBASE_AUTH_DOMAIN=
+VITE_FIREBASE_PROJECT_ID=
+VITE_FIREBASE_STORAGE_BUCKET=
+VITE_FIREBASE_MESSAGING_SENDER_ID=
+VITE_FIREBASE_APP_ID=
+```
 
-- Allow users to create an account and log in securely.
-- Browse available skills.
-- View detailed skill information.
-- Book sessions.
-- Manage and update profile information.
-- Practice Firebase Authentication integration.
+Then start the dev server:
 
----
+```bash
+npm run dev
+```
 
-## ✨ Key Features
+## Scripts
 
-- 🔐 Firebase Email & Password Authentication
-- 👤 User Registration with Name & Photo URL
-- 👁 Password Show/Hide Toggle
-- 🔑 Password Validation (Uppercase, Lowercase, Min 6 Characters)
-- 🔒 Protected Routes
-- 👨‍💼 Profile Page with Update Form
-- 🖼 Tooltip Display on Profile Image (DaisyUI)
-- 📧 Forgot Password Redirect to Gmail
-- 📱 Fully Responsive Design
-- 🎨 Styled with Tailwind CSS & DaisyUI
-- ⚡ Loader Component
+- `npm run dev`: Vite dev server
+- `npm run build`: production build
+- `npm run preview`: preview the build
+- `npm run lint`: ESLint
 
----
+## Project structure
 
-## 🛠 Technologies Used
-
-- React (Vite)
-- Firebase Authentication
-- React Router DOM
-- Context API
-- Tailwind CSS
-- DaisyUI
-- React Icons
-- React Hot Toast
-
----
-
-## 📦 NPM Packages Used
-
-- react
-- react-dom
-- react-router-dom
-- firebase
-- react-hot-toast
-- react-icons
-- tailwindcss
-- daisyui
-- aos (if used)
-- react-fast-marquee (if used)
-- animate.css (if used)
-
----
-
-## 🔐 Authentication Features
-
-- Register with Name, Email, Photo URL, and Password
-- Login system
-- Forgot Password Page
-- Profile update system
-- Logout functionality
-
----
-
-## 📂 Main Functional Pages
-
-- Home Page
-- Skill Details Page
-- Login Page
-- Register Page
-- Profile Page
-- Forget Password Page
-
----
-
-## 📖 How to Run Locally
-
-1. Clone the repository:
-
-   git clone https://github.com/Nidan73/skill-swap.git
-
-2. Install dependencies:
-
-   npm install
-
-3. Create a .env.local file in the root directory and add your Firebase credentials.
-
-4. Start the development server:
-
-   npm run dev
-
----
-
-## 👨‍💻 Developer
-
-Nidan Alam
-Frontend Developer | React Enthusiast
-
----
+```
+public/skill.json        skill data
+src/app/Context/         auth and AOS providers
+src/app/Router/          routes and PrivateRoute
+src/pages/               home, login, sign up, profile, forgot password, skill page
+src/Components/          skill cards, skill details, navbar, footer, loader
+src/Firebase/            Firebase config
+```
